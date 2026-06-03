@@ -1,2 +1,2 @@
 # SAST-False-Positive-Benchmark
-MSc Capstone Project – Benchmarking False-Positive Rates Across Static Analysis Tools for Python Web Applications.
+Benchmarking the False-Positive Rates and Detection Accuracy of SAST Tools on Human-Written and AI-Generated Python Code.
