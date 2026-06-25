@@ -1,0 +1,3 @@
+aws_secret_key = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+
+print(aws_secret_key)
