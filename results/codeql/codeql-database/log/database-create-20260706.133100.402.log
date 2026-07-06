@@ -1,0 +1,969 @@
+[2026-07-06 13:31:00] This is codeql database create results/codeql/codeql-database --language=python --source-root=dataset
+[2026-07-06 13:31:00] Log file was started late.
+[2026-07-06 13:31:00] [PROGRESS] database create> Initializing database at /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database.
+[2026-07-06 13:31:00] Running plumbing command: codeql database init --language=python --extractor-options-verbosity=1 --qlconfig-file=/Users/ehsan/Documents/SAST-False-Positive-Benchmark/qlconfig.yml --source-root=/Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset --allow-missing-source-root=false --allow-already-existing -- /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database
+[2026-07-06 13:31:00] Calling plumbing command: codeql resolve languages --extractor-options-verbosity=1 --format=betterjson
+[2026-07-06 13:31:00] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /usr/local/Caskroom/codeql/2.25.6/codeql/.codeqlmanifest.json
+[2026-07-06 13:31:00] [DETAILS] resolve languages> Parsing /usr/local/Caskroom/codeql/2.25.6/codeql/go/codeql-extractor.yml.
+[2026-07-06 13:31:00] [DETAILS] resolve languages> Parsing /usr/local/Caskroom/codeql/2.25.6/codeql/python/codeql-extractor.yml.
+[2026-07-06 13:31:00] [DETAILS] resolve languages> Parsing /usr/local/Caskroom/codeql/2.25.6/codeql/rust/codeql-extractor.yml.
+[2026-07-06 13:31:00] [DETAILS] resolve languages> Parsing /usr/local/Caskroom/codeql/2.25.6/codeql/java/codeql-extractor.yml.
+[2026-07-06 13:31:00] [DETAILS] resolve languages> Parsing /usr/local/Caskroom/codeql/2.25.6/codeql/html/codeql-extractor.yml.
+[2026-07-06 13:31:00] [DETAILS] resolve languages> Parsing /usr/local/Caskroom/codeql/2.25.6/codeql/xml/codeql-extractor.yml.
+[2026-07-06 13:31:00] [DETAILS] resolve languages> Parsing /usr/local/Caskroom/codeql/2.25.6/codeql/properties/codeql-extractor.yml.
+[2026-07-06 13:31:00] [DETAILS] resolve languages> Parsing /usr/local/Caskroom/codeql/2.25.6/codeql/cpp/codeql-extractor.yml.
+[2026-07-06 13:31:00] [DETAILS] resolve languages> Parsing /usr/local/Caskroom/codeql/2.25.6/codeql/swift/codeql-extractor.yml.
+[2026-07-06 13:31:00] [DETAILS] resolve languages> Parsing /usr/local/Caskroom/codeql/2.25.6/codeql/csv/codeql-extractor.yml.
+[2026-07-06 13:31:00] [DETAILS] resolve languages> Parsing /usr/local/Caskroom/codeql/2.25.6/codeql/actions/codeql-extractor.yml.
+[2026-07-06 13:31:00] [DETAILS] resolve languages> Parsing /usr/local/Caskroom/codeql/2.25.6/codeql/yaml/codeql-extractor.yml.
+[2026-07-06 13:31:00] [DETAILS] resolve languages> Parsing /usr/local/Caskroom/codeql/2.25.6/codeql/csharp/codeql-extractor.yml.
+[2026-07-06 13:31:00] [DETAILS] resolve languages> Parsing /usr/local/Caskroom/codeql/2.25.6/codeql/javascript/codeql-extractor.yml.
+[2026-07-06 13:31:00] [DETAILS] resolve languages> Parsing /usr/local/Caskroom/codeql/2.25.6/codeql/ruby/codeql-extractor.yml.
+[2026-07-06 13:31:00] Plumbing command codeql resolve languages completed:
+                      {
+                        "aliases" : {
+                          "c" : "cpp",
+                          "c++" : "cpp",
+                          "c-c++" : "cpp",
+                          "c-cpp" : "cpp",
+                          "c#" : "csharp",
+                          "java-kotlin" : "java",
+                          "kotlin" : "java",
+                          "javascript-typescript" : "javascript",
+                          "typescript" : "javascript"
+                        },
+                        "extractors" : {
+                          "go" : [
+                            {
+                              "extractor_root" : "/usr/local/Caskroom/codeql/2.25.6/codeql/go",
+                              "extractor_options" : {
+                                "extract_tests" : {
+                                  "title" : "Whether to include Go test files in the CodeQL database.",
+                                  "description" : "A value indicating whether Go test files should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "extract_vendor_dirs" : {
+                                  "title" : "Whether to include Go vendor directories in the CodeQL database.",
+                                  "description" : "A value indicating whether Go vendor directories should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "python" : [
+                            {
+                              "extractor_root" : "/usr/local/Caskroom/codeql/2.25.6/codeql/python",
+                              "extractor_options" : {
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Python extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the CodeQL Python extractor.\nThe supported levels are (in order of increasing verbosity):\n\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "python_executable_name" : {
+                                  "title" : "Controls the name of the Python executable used by the Python extractor.",
+                                  "description" : "The Python extractor uses platform-dependent heuristics to determine the name of the Python executable to use. Specifying a value for this option overrides the name of the Python executable used by the extractor. Accepted values are py, python and python3. Use this setting with caution, the Python extractor requires Python 3 to run.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(py|python|python3)$"
+                                }
+                              }
+                            }
+                          ],
+                          "rust" : [
+                            {
+                              "extractor_root" : "/usr/local/Caskroom/codeql/2.25.6/codeql/rust",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (to write gzip-compressed TRAP) 'zstd' (to write Zstandard-compressed TRAP) and 'none' (the default, to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|zstd)$"
+                                    }
+                                  }
+                                },
+                                "cargo_target_dir" : {
+                                  "title" : "Directory to use for cargo output files.",
+                                  "description" : "This value is an optional path to use as `CARGO_TARGET_DIR` for the internal cargo commands the extractor uses. Pointing it to a persistent directory may reduce execution time of consecutive extractor runs. By default, a new scratch directory is used for each run.\n",
+                                  "type" : "string"
+                                },
+                                "cargo_target" : {
+                                  "title" : "Target architecture",
+                                  "description" : "Target architecture to use for analysis, analogous to `cargo --target`. By default the host architecture is used.\n",
+                                  "type" : "string"
+                                },
+                                "cargo_features" : {
+                                  "title" : "Cargo features to turn on",
+                                  "description" : "Comma-separated list of features to turn on. By default all features are enabled. If any features are specified, then only those features are enabled. The `default` feature must be explicitly specified if only default features are desired. Can be repeated.\n",
+                                  "type" : "array"
+                                },
+                                "cargo_cfg_overrides" : {
+                                  "title" : "Cargo cfg overrides",
+                                  "description" : "Comma-separated list of cfg settings to enable, or disable if prefixed with `-`. Can be repeated.\n",
+                                  "type" : "array"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    },
+                                    "flamegraph" : {
+                                      "title" : "[Experimental] File path for write flame graph log",
+                                      "description" : "Collect flame graph data using the `tracing-flame` crate. To render a flame graph or chart, run the `inferno-flamegraph` command. See also: https://crates.io/crates/tracing-flame\n",
+                                      "type" : "string"
+                                    }
+                                  }
+                                },
+                                "extract_dependencies_as_source" : {
+                                  "title" : "Extract dependencies as source code",
+                                  "description" : "Extract the full source code of dependencies instead of only extracting signatures.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/usr/local/Caskroom/codeql/2.25.6/codeql/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis. This accepts glob patterns that are supported by Java's 'getPathMatcher' implementation.\n",
+                                  "type" : "string"
+                                },
+                                "add_prefer_source" : {
+                                  "title" : "Whether to always prefer source files over class files.",
+                                  "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction (experimental).",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless_dependency_dir" : {
+                                  "title" : "The path where buildless (standalone) extraction should keep dependencies.",
+                                  "description" : "If set, the buildless (standalone) extractor will store dependencies in this directory.\n",
+                                  "type" : "string"
+                                },
+                                "minimize_dependency_jars" : {
+                                  "title" : "Whether to rewrite and minimize downloaded JAR dependencies (experimental).",
+                                  "description" : "If 'true', JAR dependencies downloaded during extraction will be rewritten to remove unneeded data, such as method bodies. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/usr/local/Caskroom/codeql/2.25.6/codeql/html"
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/usr/local/Caskroom/codeql/2.25.6/codeql/xml"
+                            }
+                          ],
+                          "properties" : [
+                            {
+                              "extractor_root" : "/usr/local/Caskroom/codeql/2.25.6/codeql/properties"
+                            }
+                          ],
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/usr/local/Caskroom/codeql/2.25.6/codeql/cpp",
+                              "extractor_options" : {
+                                "scale_timeouts" : {
+                                  "title" : "Value to scale compiler introspection timeouts with",
+                                  "description" : "The extractor attempts to determine what compiler the source code being extracted is compiled with. To this end the extractor makes additional calls to the compiler, some of which are expected to return within a certain fixed time (either 10s or 15s). On some systems that are under high load this time might be too short, and can be scaled up using this option.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-9]+"
+                                },
+                                "log_verbosity" : {
+                                  "title" : "Verbosity of the extractor logging",
+                                  "description" : "Set the verbosity of the extractor logging to 'quiet' (0), 'normal' (1), 'chatty' (2), or 'noisy' (3). The default is 'normal'.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-3]"
+                                }
+                              }
+                            }
+                          ],
+                          "swift" : [
+                            {
+                              "extractor_root" : "/usr/local/Caskroom/codeql/2.25.6/codeql/swift"
+                            }
+                          ],
+                          "csv" : [
+                            {
+                              "extractor_root" : "/usr/local/Caskroom/codeql/2.25.6/codeql/csv"
+                            }
+                          ],
+                          "actions" : [
+                            {
+                              "extractor_root" : "/usr/local/Caskroom/codeql/2.25.6/codeql/actions",
+                              "extractor_options" : { }
+                            }
+                          ],
+                          "yaml" : [
+                            {
+                              "extractor_root" : "/usr/local/Caskroom/codeql/2.25.6/codeql/yaml"
+                            }
+                          ],
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/usr/local/Caskroom/codeql/2.25.6/codeql/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "DEPRECATED - Whether to use buildless (standalone) extraction.",
+                                  "description" : "DEPRECATED: Use `--build-mode none` instead.\nA value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "binlog" : {
+                                  "title" : "Binlog",
+                                  "description" : "[EXPERIMENTAL] The value is a path to the MsBuild binary log file that should be extracted. This option only works when `--build-mode none` is also specified.\n",
+                                  "type" : "array"
+                                },
+                                "buildless_dependency_dir" : {
+                                  "title" : "The path where buildless (standalone) extraction should keep dependencies.",
+                                  "description" : "If set, the buildless (standalone) extractor will store dependencies in this directory.\n",
+                                  "type" : "string"
+                                }
+                              }
+                            }
+                          ],
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/usr/local/Caskroom/codeql/2.25.6/codeql/javascript",
+                              "extractor_options" : {
+                                "skip_types" : {
+                                  "title" : "Skip type extraction for TypeScript",
+                                  "description" : "Whether to skip the extraction of types in a TypeScript application",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/usr/local/Caskroom/codeql/2.25.6/codeql/ruby",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) 'zstd' (to write Zstandard-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|zstd)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+[2026-07-06 13:31:01] [PROGRESS] database init> Calculating baseline information in /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset
+[2026-07-06 13:31:01] [SPAMMY] database init> Ignoring the following directories when processing baseline information: .git, .hg, .svn.
+[2026-07-06 13:31:01] [DETAILS] database init> Running command in /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset: /usr/local/Caskroom/codeql/2.25.6/codeql/tools/osx64/scc --by-file --exclude-dir .git,.hg,.svn --format json --no-large --no-min .
+[2026-07-06 13:31:02] [SPAMMY] database init> Found 200 baseline files for python.
+[2026-07-06 13:31:02] [PROGRESS] database init> Calculated baseline information for languages: python (1.1s).
+[2026-07-06 13:31:02] [PROGRESS] database init> Resolving extractor python.
+[2026-07-06 13:31:02] [DETAILS] database init> Found candidate extractor root for python: /usr/local/Caskroom/codeql/2.25.6/codeql/python.
+[2026-07-06 13:31:02] [PROGRESS] database init> Successfully loaded extractor Python (python) from /usr/local/Caskroom/codeql/2.25.6/codeql/python.
+[2026-07-06 13:31:02] [SPAMMY] database init> Determining macOS System Integrity Protection status...
+[2026-07-06 13:31:02] [SPAMMY] database init> Running command [/usr/bin/csrutil, status].
+[2026-07-06 13:31:02] [SPAMMY] database init> SIP is enabled.
+[2026-07-06 13:31:02] [PROGRESS] database init> Created skeleton CodeQL database at /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database. This in-progress database is ready to be populated by an extractor.
+[2026-07-06 13:31:02] Plumbing command codeql database init completed.
+[2026-07-06 13:31:02] [PROGRESS] database create> Running build command: []
+[2026-07-06 13:31:02] Running plumbing command: codeql database trace-command --working-dir=/Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset --index-traceless-dbs --no-db-cluster -- /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database
+[2026-07-06 13:31:02] Using autobuild script /usr/local/Caskroom/codeql/2.25.6/codeql/python/tools/autobuild.sh.
+[2026-07-06 13:31:02] [PROGRESS] database trace-command> Running command in /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset: [/usr/local/Caskroom/codeql/2.25.6/codeql/python/tools/autobuild.sh]
+[2026-07-06 13:31:02] [build-stderr] /bin/sh: python2: command not found
+[2026-07-06 13:31:02] [build-stdout] No directories containing root identifiers were found. Returning working directory as root.
+[2026-07-06 13:31:02] [build-stdout] Will try to guess Python version, as it was not specified in `lgtm.yml`
+[2026-07-06 13:31:02] [build-stdout] Trying to guess Python version based on Trove classifiers in setup.py
+[2026-07-06 13:31:02] [build-stdout] Did not find setup.py (expected it to be at /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/setup.py)
+[2026-07-06 13:31:02] [build-stdout] Trying to guess Python version based on travis file
+[2026-07-06 13:31:02] [build-stdout] Did not find any travis files (expected them at either ['/Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/.travis.yml', '/Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/travis.yml'])
+[2026-07-06 13:31:02] [build-stdout] Trying to guess Python version based on installed versions
+[2026-07-06 13:31:02] [build-stdout] Wanted to run Python 2, but it is not available. Using Python 3 instead
+[2026-07-06 13:31:02] [build-stdout] This script is running Python 3, but Python 2 is also available (as 'python3')
+[2026-07-06 13:31:02] [build-stdout] Could not guess Python version, will use default: Python 3
+[2026-07-06 13:31:02] [build-stdout] Calling python3 -S /usr/local/Caskroom/codeql/2.25.6/codeql/python/tools/python_tracer.py --verbosity 3 -z all -c /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database/working/trap_cache -R /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset
+[2026-07-06 13:31:03] [build-stdout] INFO: The Python extractor has recently stopped extracting the standard library by default. If you encounter problems, please let us know by submitting an issue to https://github.com/github/codeql. It is possible to re-enable extraction of the standard library by setting the environment variable CODEQL_EXTRACTOR_PYTHON_EXTRACT_STDLIB.
+[2026-07-06 13:31:03] [build-stdout] [INFO] Extraction will use the Python 3 standard library.
+[2026-07-06 13:31:03] [build-stdout] [INFO] sys_path is: ['/usr/local/Caskroom/codeql/2.25.6/codeql/python/tools', '/opt/anaconda3/lib/python313.zip', '/opt/anaconda3/lib/python3.13', '/opt/anaconda3/lib/python3.13/lib-dynload']
+[2026-07-06 13:31:03] [build-stdout] [INFO] Python version 3.13.5
+[2026-07-06 13:31:03] [build-stdout] [INFO] Python extractor version 7.1.8
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_cmd_02.py in 18ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_path_09.py in 18ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_cmd_06.py in 13ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_sql_08.py in 17ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_cmd_07.py in 12ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_cmd_03.py in 9ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_secret_05.py in 6ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_path_08.py in 10ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_eval_10.py in 9ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_secret_01.py in 7ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_path_03.py in 9ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_cmd_08.py in 8ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [6] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_sql_09.py in 23ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_path_07.py in 12ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_eval_04.py in 9ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_secret_10.py in 8ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_sql_06.py in 21ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_sql_03.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [6] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_eval_05.py in 13ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_path_02.py in 10ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_sql_vuln_03.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_eval_safe_08.py in 11ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_eval_safe_03.py in 9ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Skipped built-in file /opt/anaconda3/lib/python3.13/sqlite3/__init__.py
+[2026-07-06 13:31:04] [build-stdout] [INFO] [6] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_cmd_vuln_10.py in 12ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_eval_safe_02.py in 20ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [7] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_sql_02.py in 38ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_sql_07.py in 25ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_cmd_vuln_09.py in 12ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_eval_vuln_07.py in 11ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [6] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_eval_safe_09.py in 12ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_eval_safe_02.py in 13ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_eval_03.py in 10ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [7] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_cmd_safe_03.py in 15ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_path_safe_08.py in 11ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [6] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_path_safe_05.py in 10ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [9] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_path_06.py in 49ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted folder /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable in 2ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted folder /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe in 1ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_cmd_vuln_03.py in 19ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [11] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_path_vuln_01.py in 40ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [8] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_cmd_safe_09.py in 34ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_secret_safe_02.py in 9ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [7] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_eval_safe_06.py in 11ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_sql_safe_02.py in 16ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [9] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_secret_safe_07.py in 11ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_path_safe_09.py in 11ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [11] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_eval_vuln_04.py in 10ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [10] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_secret_04.py in 58ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_secret_safe_03.py in 16ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [7] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_eval_vuln_10.py in 11ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [8] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_path_safe_03.py in 17ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_path_safe_02.py in 12ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [7] Extracted folder /opt/anaconda3/lib/python3.13/sqlite3 in 2ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [6] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_path_vuln_03.py in 26ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_sql_vuln_05.py in 55ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_secret_safe_10.py in 11ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_sql_safe_04.py in 16ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_eval_09.py in 10ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [9] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_path_01.py in 20ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [11] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_cmd_safe_07.py in 20ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [7] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_path_vuln_06.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [10] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_path_vuln_08.py in 21ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [10] Extracted folder /opt/anaconda3/lib/python3.13/pathlib in 2ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_path_safe_10.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [8] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_sql_01.py in 22ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_secret_08.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [9] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_eval_safe_10.py in 12ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [6] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_secret_vuln_08.py in 21ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [6] Skipped built-in file /opt/anaconda3/lib/python3.13/subprocess.py
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_path_safe_07.py in 17ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Skipped built-in file /opt/anaconda3/lib/python3.13/ast.py
+[2026-07-06 13:31:04] [build-stdout] [INFO] [11] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_eval_safe_10.py in 17ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_secret_safe_09.py in 11ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [10] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_path_safe_08.py in 12ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [8] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_cmd_safe_08.py in 11ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [7] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_cmd_vuln_05.py in 19ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [12] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_sql_04.py in 30ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_sql_safe_06.py in 55ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_path_safe_04.py in 20ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [8] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_secret_vuln_02.py in 11ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [6] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_secret_safe_05.py in 15ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted folder /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe in 4ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_path_safe_06.py in 15ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [7] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_secret_vuln_05.py in 9ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [9] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_sql_safe_10.py in 28ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [12] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_secret_safe_01.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_sql_safe_06.py in 24ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [11] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_sql_vuln_08.py in 23ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_sql_safe_03.py in 47ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_cmd_safe_02.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [7] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_secret_06.py in 12ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [8] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_sql_safe_07.py in 17ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_eval_safe_05.py in 15ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [6] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_eval_safe_04.py in 18ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_secret_safe_04.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [12] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_eval_safe_01.py in 18ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_secret_02.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [8] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_path_safe_01.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [11] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_sql_safe_04.py in 23ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [6] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_path_04.py in 15ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_path_safe_03.py in 33ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_sql_safe_09.py in 18ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [12] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_secret_safe_09.py in 16ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_eval_safe_07.py in 17ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_path_safe_01.py in 18ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [8] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_path_safe_10.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [10] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_sql_vuln_01.py in 56ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [6] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_eval_vuln_09.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [11] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_cmd_safe_10.py in 16ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [9] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_sql_safe_07.py in 42ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [7] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_sql_vuln_02.py in 34ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_eval_01.py in 18ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [10] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_secret_safe_03.py in 9ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_cmd_safe_02.py in 13ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [8] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_cmd_safe_09.py in 11ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [6] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_eval_06.py in 9ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [12] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_path_05.py in 15ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [11] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_path_safe_02.py in 12ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_eval_safe_08.py in 51ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [8] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_secret_safe_06.py in 9ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [8] Skipped built-in file /opt/anaconda3/lib/python3.13/json/__init__.py
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_eval_vuln_05.py in 9ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_cmd_vuln_07.py in 16ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [11] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_cmd_safe_01.py in 9ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [11] Skipped built-in file /opt/anaconda3/lib/python3.13/pathlib/__init__.py
+[2026-07-06 13:31:04] [build-stdout] [INFO] [6] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_path_safe_09.py in 12ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted folder /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable in 2ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_cmd_safe_05.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [9] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_secret_safe_02.py in 31ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_cmd_safe_05.py in 19ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [12] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_path_vuln_04.py in 28ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [8] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_sql_05.py in 23ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [6] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_sql_safe_08.py in 20ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_eval_vuln_02.py in 10ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [7] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_secret_07.py in 42ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_cmd_vuln_02.py in 21ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [10] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_cmd_safe_01.py in 36ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_sql_vuln_07.py in 62ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_sql_safe_08.py in 52ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [9] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_secret_vuln_09.py in 17ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_path_vuln_02.py in 17ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [11] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_path_safe_04.py in 32ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_cmd_safe_08.py in 13ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [10] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_path_safe_06.py in 12ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [7] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_cmd_09.py in 13ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_secret_09.py in 8ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [9] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_cmd_01.py in 12ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [12] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_secret_vuln_07.py in 29ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [10] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_cmd_safe_03.py in 13ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_path_safe_07.py in 22ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_eval_vuln_01.py in 15ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_cmd_10.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [12] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_secret_safe_10.py in 11ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_sql_safe_05.py in 31ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [11] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_secret_safe_06.py in 29ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_secret_vuln_03.py in 9ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [10] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_path_vuln_10.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_secret_safe_04.py in 10ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_secret_safe_08.py in 12ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [9] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_sql_safe_02.py in 25ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [12] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_secret_vuln_10.py in 9ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_secret_safe_05.py in 11ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [10] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_cmd_vuln_06.py in 10ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [12] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_eval_vuln_06.py in 9ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_path_vuln_09.py in 16ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_sql_safe_09.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_sql_vuln_09.py in 15ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [7] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_sql_safe_01.py in 43ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [10] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_cmd_safe_10.py in 11ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_cmd_safe_04.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [6] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_cmd_safe_07.py in 65ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_eval_safe_06.py in 15ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [10] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_cmd_05.py in 12ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_eval_02.py in 17ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_cmd_safe_06.py in 12ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_secret_vuln_04.py in 11ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_eval_safe_09.py in 26ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [10] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_secret_03.py in 13ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_secret_vuln_01.py in 10ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_secret_safe_08.py in 91ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_eval_safe_01.py in 17ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_eval_safe_03.py in 9ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted folder /opt/anaconda3/lib/python3.13/json in 2ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [9] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_eval_vuln_03.py in 51ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [7] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_cmd_vuln_01.py in 39ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_eval_safe_04.py in 13ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [10] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_sql_safe_03.py in 18ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_path_vuln_07.py in 20ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_secret_safe_07.py in 12ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [8] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_eval_safe_07.py in 117ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [10] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_eval_vuln_08.py in 11ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_path_vuln_05.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_secret_vuln_06.py in 11ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_eval_07.py in 13ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Skipped built-in file /opt/anaconda3/lib/python3.13/os.py
+[2026-07-06 13:31:04] [build-stdout] [INFO] [9] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_cmd_vuln_04.py in 27ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [11] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_sql_vuln_06.py in 84ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_sql_safe_10.py in 34ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [12] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_cmd_safe_04.py in 73ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [8] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_cmd_04.py in 14ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [6] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_sql_safe_01.py in 62ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [9] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_eval_08.py in 15ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [7] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_eval_safe_05.py in 39ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [2] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_secret_safe_01.py in 19ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [12] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_cmd_safe_06.py in 12ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [4] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_sql_10.py in 46ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [10] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_safe/human_path_safe_05.py in 24ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [3] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_cmd_vuln_08.py in 27ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [5] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_sql_vuln_04.py in 24ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [11] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_safe/ai_sql_safe_05.py in 25ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [1] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/human_vulnerable/human_path_10.py in 30ms
+[2026-07-06 13:31:04] [build-stdout] [INFO] [8] Extracted file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset/ai_vulnerable/ai_sql_vuln_10.py in 21ms
+[2026-07-06 13:31:05] [build-stdout] [INFO] Processed 213 modules in 1.67s
+[2026-07-06 13:31:05] Plumbing command codeql database trace-command completed.
+[2026-07-06 13:31:05] [PROGRESS] database create> Finalizing database at /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database.
+[2026-07-06 13:31:05] Running plumbing command: codeql database finalize --no-db-cluster -- /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database
+[2026-07-06 13:31:05] Using pre-finalize script /usr/local/Caskroom/codeql/2.25.6/codeql/python/tools/pre-finalize.sh.
+[2026-07-06 13:31:05] [PROGRESS] database finalize> Running pre-finalize script /usr/local/Caskroom/codeql/2.25.6/codeql/python/tools/pre-finalize.sh in /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset.
+[2026-07-06 13:31:05] Running plumbing command: codeql database trace-command --working-dir=/Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset --no-tracing -- /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database /usr/local/Caskroom/codeql/2.25.6/codeql/python/tools/pre-finalize.sh
+[2026-07-06 13:31:05] [PROGRESS] database trace-command> Running command in /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset: [/usr/local/Caskroom/codeql/2.25.6/codeql/python/tools/pre-finalize.sh]
+[2026-07-06 13:31:06] [build-stderr] Scanning for files in /Users/ehsan/Documents/SAST-False-Positive-Benchmark/dataset...
+[2026-07-06 13:31:06] Plumbing command codeql database trace-command completed.
+[2026-07-06 13:31:06] [PROGRESS] database finalize> Pre-finalize script /usr/local/Caskroom/codeql/2.25.6/codeql/python/tools/pre-finalize.sh completed in 1351 ms.
+[2026-07-06 13:31:06] [PROGRESS] database finalize> Running TRAP import for CodeQL database at /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database...
+[2026-07-06 13:31:06] Running plumbing command: codeql dataset import --dbscheme=/usr/local/Caskroom/codeql/2.25.6/codeql/python/semmlecode.python.dbscheme -- /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database/db-python /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database/trap/python
+[2026-07-06 13:31:07] Clearing disk cache since the version file /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database/db-python/default/cache/version does not exist
+[2026-07-06 13:31:07] Tuple pool not found. Clearing relations with cached strings
+[2026-07-06 13:31:07] Trimming disk cache at /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database/db-python/default/cache in mode clear.
+[2026-07-06 13:31:07] Sequence stamp origin is -5894494433019287381
+[2026-07-06 13:31:07] Pausing evaluation to hard-clear memory at sequence stamp o+0
+[2026-07-06 13:31:07] Unpausing evaluation
+[2026-07-06 13:31:07] Pausing evaluation to quickly trim disk at sequence stamp o+1
+[2026-07-06 13:31:07] Unpausing evaluation
+[2026-07-06 13:31:07] Pausing evaluation to zealously trim disk at sequence stamp o+2
+[2026-07-06 13:31:07] Unpausing evaluation
+[2026-07-06 13:31:07] Trimming completed (7ms): Purged everything.
+[2026-07-06 13:31:07] Scanning for files in /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database/trap/python
+[2026-07-06 13:31:07] Found 223 TRAP files (898.06 KiB)
+[2026-07-06 13:31:07] [PROGRESS] dataset import> Importing TRAP files
+[2026-07-06 13:31:07] Importing $files.-7dDvlv94vU2JMQZxlrmnCcg38o=.trap.gz (1 of 223)
+[2026-07-06 13:31:07] Importing $files.-mQq6GqsdL7ZplH9utJEIvMLiwM=.trap.gz (2 of 223)
+[2026-07-06 13:31:07] Importing $files.4qBX9xex5FF53_sIK30zFxa9pE0=.trap.gz (3 of 223)
+[2026-07-06 13:31:07] Importing $files.8g8RXMp9UW9Vc59eEK12BYvokmI=.trap.gz (4 of 223)
+[2026-07-06 13:31:07] Importing $files.B-E68yoPj1C0Xr9-3NVMAjepV80=.trap.gz (5 of 223)
+[2026-07-06 13:31:07] Importing $files.HWppUnxQVYGYUII3LM1MuGUq6a0=.trap.gz (6 of 223)
+[2026-07-06 13:31:07] Importing $files.MDSuu681OU_NDFrXtEf9HGoUF1o=.trap.gz (7 of 223)
+[2026-07-06 13:31:07] Importing $files.PJSIZw_7MrMvwZZsConMZH3UEZ8=.trap.gz (8 of 223)
+[2026-07-06 13:31:07] Importing $files.Q9XX2ywA0i7e8Q-rayhY4WvPPJM=.trap.gz (9 of 223)
+[2026-07-06 13:31:07] Importing $files.lN3F5P3boKs-86pj_DXxNK5FjYs=.trap.gz (10 of 223)
+[2026-07-06 13:31:07] Importing $files.oFaRIy37L7nwqjmpGZFivJ1nJYQ=.trap.gz (11 of 223)
+[2026-07-06 13:31:07] Importing $files.vsqaNUiYQ9dXZ-HRJXSWKcEO7Xk=.trap.gz (12 of 223)
+[2026-07-06 13:31:07] Importing $flags.xhmE_Fp-nYHvMc4H1aDDRVsT7EM=.trap.gz (13 of 223)
+[2026-07-06 13:31:07] Importing $interpreter3.tmTeZdC1uMP1leQFL8CM6AExvUY=.trap.gz (14 of 223)
+[2026-07-06 13:31:07] Importing $stdlib_33._4EEp86yTX4yvtihOHSiJvGCE3s=.trap (15 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_safe_01.py.gtnboeoyWOYYt3z04EqNeTKHJjY=.trap.gz (16 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_safe_02.py.YaZqCJHqtCXWz2whnQrbTORYavE=.trap.gz (17 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_safe_03.py.QlL34mZnZV63RNCWezQbY81DaNA=.trap.gz (18 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_safe_04.py.WyuI-5FNFmiC7LF0MCWiVqejq6o=.trap.gz (19 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_safe_05.py.RwyYVDLpXKlbaqBjp5B6GnpWODk=.trap.gz (20 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_safe_06.py.1P-_6A54tANzOAsalfQOcxScTaA=.trap.gz (21 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_safe_07.py.4yYL4-4L94PO8AYH5Z_sfzvwJCU=.trap.gz (22 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_safe_08.py.oxiayv9n7Jy6G2mfZqNFGkASDxg=.trap.gz (23 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_safe_09.py.T8lmPd0QmCQ75_L6UHwyxedzxuY=.trap.gz (24 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_safe_10.py.URrASRlkW-TnkjGby70qxOwrx7g=.trap.gz (25 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_vuln_01.py.x3n_jdIKFKTlUZCH-u2C15JKKZ4=.trap.gz (26 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_vuln_02.py.7VVXcH1Ht3cYZ_IcpBiqRZdkd1s=.trap.gz (27 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_vuln_03.py.0xh0GAj32QwS_6RNFkG2MaCawCA=.trap.gz (28 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_vuln_04.py.XZ_vzzDP60EFiBwU29hnekuU_mw=.trap.gz (29 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_vuln_05.py.olphX6x9-kKgC5TkZmDcZjieE0I=.trap.gz (30 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_vuln_06.py.8vUFlKRCJN4lxB7gw-BkX885cCk=.trap.gz (31 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_vuln_07.py.8pMlUBR_Q624O14PPKkX8Kbrx4Y=.trap.gz (32 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_vuln_08.py.251yWhjC4yVnQCwNudg_v58tusw=.trap.gz (33 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_vuln_09.py.qE5VPhzILNiJWZDpBRLJeL-ogqQ=.trap.gz (34 of 223)
+[2026-07-06 13:31:07] Importing ai_cmd_vuln_10.py.XFhETM40VYNJBZMu8pG2-7M1EKQ=.trap.gz (35 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_safe_01.py.QGYKJPFOtAvEMH2RkumGW-C3GF8=.trap.gz (36 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_safe_02.py.GC76TTijJQy4aSaCsBcwXhkKvwU=.trap.gz (37 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_safe_03.py._g3KZZHDpKiFpXKVCXFZK9TFHVA=.trap.gz (38 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_safe_04.py.p6JgE6_wJy1yOxlglJFRkVWSYPU=.trap.gz (39 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_safe_05.py.t5x_LdkDI_FJeUacgOWZ0f4kcmM=.trap.gz (40 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_safe_06.py.iC9cJPIIIeMCvLQ5Gp_GO0wRGQA=.trap.gz (41 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_safe_07.py.ahcK3IWYuIfCmcsG0AsftGZJ1tk=.trap.gz (42 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_safe_08.py.zYG-zRs45QWqhsl0wXmMfcrLSiM=.trap.gz (43 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_safe_09.py.4MpwEcSmxOdj0R4gKdQK2MZT-wk=.trap.gz (44 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_safe_10.py.sAg5Fg2iYZfYV8VMOj3t9XJge2M=.trap.gz (45 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_vuln_01.py.Kejag-g0NWj1MBkzcYFagB2Olu4=.trap.gz (46 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_vuln_02.py.db4VMF5dWpuk74r_sgISl6YZghc=.trap.gz (47 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_vuln_03.py.cxkFrdY3GLRsQso8fi3aVeSsslM=.trap.gz (48 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_vuln_04.py.6hQgLUJkpBoECoIzwmEGN0S2MF8=.trap.gz (49 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_vuln_05.py.7JrD8-ygoJgyK7DntYFd1uE8c6o=.trap.gz (50 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_vuln_06.py.u6MwKUKl8cnBRiKIoKqtxbUjYDg=.trap.gz (51 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_vuln_07.py.kLGhjj-ltRY2zrI44Oa1bdUmZ_Q=.trap.gz (52 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_vuln_08.py.9cLUM1L1bJw71aQXrX3kw_V5cjE=.trap.gz (53 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_vuln_09.py.Pya4qCiypy1SYdIx-jH_ACibjJQ=.trap.gz (54 of 223)
+[2026-07-06 13:31:07] Importing ai_eval_vuln_10.py.je9DkE614F0Cz8a8iJvtHeG5e4U=.trap.gz (55 of 223)
+[2026-07-06 13:31:07] Importing ai_path_safe_01.py.zw8uYpFregsvg4sp-ZDpS0NoxYo=.trap.gz (56 of 223)
+[2026-07-06 13:31:07] Importing ai_path_safe_02.py.UqoIf5ixRph_xDcbJcUqqlwB5jY=.trap.gz (57 of 223)
+[2026-07-06 13:31:07] Importing ai_path_safe_03.py.DB48B8n82dnqH5DeZGiufd9mDrU=.trap.gz (58 of 223)
+[2026-07-06 13:31:07] Importing ai_path_safe_04.py.XZbOwasfWR6mQ6RhdAYm2fsyRjQ=.trap.gz (59 of 223)
+[2026-07-06 13:31:07] Importing ai_path_safe_05.py.OFw9XwG_Vby0BlARM7WReYaO0qA=.trap.gz (60 of 223)
+[2026-07-06 13:31:07] Importing ai_path_safe_06.py.1AqT8MZcZEhSnjWiVc8jMrfmn1s=.trap.gz (61 of 223)
+[2026-07-06 13:31:07] Importing ai_path_safe_07.py.OgEQ5WYJ7cbjQizTje3nRtk2Tyw=.trap.gz (62 of 223)
+[2026-07-06 13:31:07] Importing ai_path_safe_08.py.I7sroB-oD1-s5pSK-C9wwiriNLU=.trap.gz (63 of 223)
+[2026-07-06 13:31:07] Importing ai_path_safe_09.py.oGNcg2wacLCVRAFcNfdVrzKArJo=.trap.gz (64 of 223)
+[2026-07-06 13:31:07] Importing ai_path_safe_10.py.7L-h9U0EONjOUko_lvoa4w_iU7A=.trap.gz (65 of 223)
+[2026-07-06 13:31:07] Importing ai_path_vuln_01.py.FRoQHDrLInDz7jQwZJqtjE_Pz_Y=.trap.gz (66 of 223)
+[2026-07-06 13:31:07] Importing ai_path_vuln_02.py.AIisoxJxeS_nhW3Ei1qTQZcZDHU=.trap.gz (67 of 223)
+[2026-07-06 13:31:07] Importing ai_path_vuln_03.py.cDHk3oLUkCut5y_ggPyC8BFuZoE=.trap.gz (68 of 223)
+[2026-07-06 13:31:07] Importing ai_path_vuln_04.py.CBYu0MdKLSdGKoJNMq9dZYciEAo=.trap.gz (69 of 223)
+[2026-07-06 13:31:07] Importing ai_path_vuln_05.py.TkPmb4i3-qpoVY9kQN3Kne1eA-c=.trap.gz (70 of 223)
+[2026-07-06 13:31:07] Importing ai_path_vuln_06.py.Mu8F3mCXw8zy3siOE1QxFFXrQ9I=.trap.gz (71 of 223)
+[2026-07-06 13:31:07] Importing ai_path_vuln_07.py.nvHiVVbBQnR6EUtvY4HZ3gtR2Xc=.trap.gz (72 of 223)
+[2026-07-06 13:31:07] Importing ai_path_vuln_08.py.2wcSgESLcmAJKrk7CQ5A_GpRxno=.trap.gz (73 of 223)
+[2026-07-06 13:31:07] Importing ai_path_vuln_09.py.LufKCM5jrwTYaLwyEkWwSGSJnTI=.trap.gz (74 of 223)
+[2026-07-06 13:31:07] Importing ai_path_vuln_10.py.UNNNHmZBdNO7XGDKHix0lJJC7EU=.trap.gz (75 of 223)
+[2026-07-06 13:31:07] Importing ai_safe.gkx_XPyLqAI2Q41jXx8bWz9qrEs=.trap.gz (76 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_safe_01.py.oiqH9SZQDw8X_jbQVC6yoMhvNq8=.trap.gz (77 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_safe_02.py.-1TSQOGYIFTYfMBxQ5fYdy-_ta8=.trap.gz (78 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_safe_03.py.ykjHiYsOPtZxC59F9HEZcansK48=.trap.gz (79 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_safe_04.py.uLXtV5d6o2LVM3HOEYFBRb-WtIQ=.trap.gz (80 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_safe_05.py.lBIegh0Ae9lIZHgeUp6G7_woEyg=.trap.gz (81 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_safe_06.py.8gnNsuvvC08BaQQ29Bs891rxX9g=.trap.gz (82 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_safe_07.py.avYfhGmPa7i3fTPaZY6c4aeQcw4=.trap.gz (83 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_safe_08.py.7RQ3nq_nQ6cg2BeF0fBviaiu6kc=.trap.gz (84 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_safe_09.py.54SNAxLxYyqwlgdOCfrJaGqVyzA=.trap.gz (85 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_safe_10.py.PymteHJOkp-Wm4V3vU5x86XktV8=.trap.gz (86 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_vuln_01.py.ghDYZkAhmGRWeAjQldJAsCybyH4=.trap.gz (87 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_vuln_02.py.UoWpJOMj3ksVmaWB4-_e0pgnBuU=.trap.gz (88 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_vuln_03.py.9esxu_zY9T-iwU9et8bcG6Mk31A=.trap.gz (89 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_vuln_04.py.SNY-9JuaHfWu0xSn20wu-pjKAv8=.trap.gz (90 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_vuln_05.py.MRAfLDH5JH-Xjxgop7Jw1iY-Vvs=.trap.gz (91 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_vuln_06.py.9y7maIKqqCRK6mQrPahcGhAsAtM=.trap.gz (92 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_vuln_07.py.KEV-dGAvmRRn7ShL_PYljsebejI=.trap.gz (93 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_vuln_08.py.LDKUJvEnEasl_GLhu7fC5xcimVU=.trap.gz (94 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_vuln_09.py.3ZVwMDClMb1Fi6CmR0G9DFPgsMs=.trap.gz (95 of 223)
+[2026-07-06 13:31:07] Importing ai_secret_vuln_10.py.atRrKBd8PNukWr-p5xEJMlyBmMI=.trap.gz (96 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_safe_01.py.3-73Eb1SUwlyhj1YQz0jtlyOUB8=.trap.gz (97 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_safe_02.py.7rjgXWZof-Xnv9J6sZeWx-OEEIU=.trap.gz (98 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_safe_03.py.SnYJu4qTD9Vt2kzVopQ6zMvJ4q0=.trap.gz (99 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_safe_04.py.vD58rO5plvBrltjhhNmEqfKYy2E=.trap.gz (100 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_safe_05.py.yHQvYj3ddEoiecP1muMXxzIAMNk=.trap.gz (101 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_safe_06.py.4IcpqFQZzpg6xpT5vzB8NkRtrYM=.trap.gz (102 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_safe_07.py.VvIc6jo2eTp_Hy4_wIPp3fxzARM=.trap.gz (103 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_safe_08.py.WR2H6JchJcXnaDADFlUAXx86gZ4=.trap.gz (104 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_safe_09.py.qP5YT3tm-R8wEu2zMbQFy0f2uL0=.trap.gz (105 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_safe_10.py.Mh3OXfyZQfOwHZZt0O2vf1zBLQA=.trap.gz (106 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_vuln_01.py.69ZevxUF2g4mtQjoLm_QhvsPG2s=.trap.gz (107 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_vuln_02.py.WzTnWFnPf1VCyLWP-VZBJWJ74-A=.trap.gz (108 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_vuln_03.py.aiXMHgjq-qig36vBi7_LrfBkWIg=.trap.gz (109 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_vuln_04.py.gJ28F_qBXfSI1gYpN9SdfzPWLcg=.trap.gz (110 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_vuln_05.py.RhRVZHx9Tv5zZkPZY_sNXvR-w-I=.trap.gz (111 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_vuln_06.py.RieKsAaUFu4CAmoY_d6fjGe1FGA=.trap.gz (112 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_vuln_07.py.6pSfjaERDeAArWvBVAjI8DRDdC4=.trap.gz (113 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_vuln_08.py.-82Ean8kHyGPW_xUbrnH-hwOGXQ=.trap.gz (114 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_vuln_09.py.vL1wZ2AREk3JjBxrIiVIndHoVGk=.trap.gz (115 of 223)
+[2026-07-06 13:31:07] Importing ai_sql_vuln_10.py.gA7Rm8_XWHwXOnunQzXiiAEP9yU=.trap.gz (116 of 223)
+[2026-07-06 13:31:07] Importing ai_vulnerable.e46VSCgg8gblS35j8RS_1Mt5z30=.trap.gz (117 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_01.py.Zha9VWSRfA-MoIqihXFmQql5XOE=.trap.gz (118 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_02.py.uIyvoYMut9AHxw25K46bR6TuMRs=.trap.gz (119 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_03.py.ljlVrFoi_uxF_1ZCcWqaozw_zvQ=.trap.gz (120 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_04.py.T6nHCc5b7aceyOCyCgeWrzkAQo4=.trap.gz (121 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_05.py.OJ1pAL6Mq6-6pi_n_VUZWYj-rxM=.trap.gz (122 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_06.py.Y0VGNfG3NY77hG75oRmntKUrywQ=.trap.gz (123 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_07.py.oO1rVcZOobchFVWb14dFPeFLrnA=.trap.gz (124 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_08.py.F_kL0espkq3KrPVElRGKJ_p5yNQ=.trap.gz (125 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_09.py.veAsLp348_kYOJ-oairp_u5o9zQ=.trap.gz (126 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_10.py.X4IhCAiwrRC74e6WNtlC7Fv-Jqs=.trap.gz (127 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_safe_01.py.TWx7X__OCwAVD_jqZUEcKw4zL9M=.trap.gz (128 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_safe_02.py.T6p4OfW4XBKDUBoQM6rD8fxufcA=.trap.gz (129 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_safe_03.py.Sie6hBMaOSWDTqjP2jBCTLIJ1ek=.trap.gz (130 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_safe_04.py.LYC69OMkBT5wrPVtZC6fgBfhRLU=.trap.gz (131 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_safe_05.py.Crng1N9htjF0SykqWRtnsMZL6U8=.trap.gz (132 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_safe_06.py.vozPsT1wVYDq9LvMBnvuCf3JtUw=.trap.gz (133 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_safe_07.py.dh-FiX6Qhzq-ljcAZWOhDf6FYzY=.trap.gz (134 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_safe_08.py.rB95pfUDOr-T_eCZIQAtds2cEMg=.trap.gz (135 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_safe_09.py.Ttx2BMCgs_Mfwp_YgryhOOm34lY=.trap.gz (136 of 223)
+[2026-07-06 13:31:07] Importing human_cmd_safe_10.py.hPbqyJxD4l6RC0xc6WA_en4RB2I=.trap.gz (137 of 223)
+[2026-07-06 13:31:07] Importing human_eval_01.py.k_0dV7DdCSmArSFtGnkFfwB8ljY=.trap.gz (138 of 223)
+[2026-07-06 13:31:07] Importing human_eval_02.py.6cbL0LOS6BYDRvdy8jtwKOyh_3s=.trap.gz (139 of 223)
+[2026-07-06 13:31:07] Importing human_eval_03.py.GBTUbXamIPZu-efrjPc2B6Oo-zI=.trap.gz (140 of 223)
+[2026-07-06 13:31:07] Importing human_eval_04.py.3Psu-fkzMjf3HHGis0Wd3Vje-CI=.trap.gz (141 of 223)
+[2026-07-06 13:31:07] Importing human_eval_05.py.g1bYK9_VJ3cs_DJ-2SO9tcL5omI=.trap.gz (142 of 223)
+[2026-07-06 13:31:07] Importing human_eval_06.py.9oGXckvAvX7HqJZoEKefsXEcdOk=.trap.gz (143 of 223)
+[2026-07-06 13:31:07] Importing human_eval_07.py.5WslX-qF0lTKmxVwN07NSglGUxU=.trap.gz (144 of 223)
+[2026-07-06 13:31:07] Importing human_eval_08.py.fxN-xFcE-fa56ULdhg01v_IOcpw=.trap.gz (145 of 223)
+[2026-07-06 13:31:07] Importing human_eval_09.py.CXVz7TxizMGcGEv_anGUCVZsuS4=.trap.gz (146 of 223)
+[2026-07-06 13:31:07] Importing human_eval_10.py.EPY8fVnili3ub9PbZ2qO2QIkfLE=.trap.gz (147 of 223)
+[2026-07-06 13:31:07] Importing human_eval_safe_01.py.3uBjZaEpdfozV_jKCxJLJ1-_n4A=.trap.gz (148 of 223)
+[2026-07-06 13:31:07] Importing human_eval_safe_02.py.PRLg-5HOFtaqH7pQTv4PC99u0DA=.trap.gz (149 of 223)
+[2026-07-06 13:31:07] Importing human_eval_safe_03.py.s7KBELaf0uBD2X4ABAy70HQ1TjA=.trap.gz (150 of 223)
+[2026-07-06 13:31:07] Importing human_eval_safe_04.py.VDNtx-7BYE03AMRTivl-boFwnpM=.trap.gz (151 of 223)
+[2026-07-06 13:31:07] Importing human_eval_safe_05.py.fMB0j43FAzEY6lVb6kUTM2Pz6aU=.trap.gz (152 of 223)
+[2026-07-06 13:31:07] Importing human_eval_safe_06.py.ZlAME1OXg8nzGPDyczOWLGTCtYk=.trap.gz (153 of 223)
+[2026-07-06 13:31:07] Importing human_eval_safe_07.py.UlxNxfLcum5-90YdsrjT4odkXaQ=.trap.gz (154 of 223)
+[2026-07-06 13:31:07] Importing human_eval_safe_08.py.XqEA3c-CcBGw_6WZas_ljrRAg7I=.trap.gz (155 of 223)
+[2026-07-06 13:31:07] Importing human_eval_safe_09.py.oQ9aY8T_7wkWxZtOeYwFjGgFLRw=.trap.gz (156 of 223)
+[2026-07-06 13:31:07] Importing human_eval_safe_10.py.jckzsDekGBk5qxMsZqnQY2XMKNA=.trap.gz (157 of 223)
+[2026-07-06 13:31:07] Importing human_path_01.py.v9KEJTUTuy2wo78A2KM8IkBUk_U=.trap.gz (158 of 223)
+[2026-07-06 13:31:07] Importing human_path_02.py.5l0hCfkRSdrjihkgJ2hJuj4jUro=.trap.gz (159 of 223)
+[2026-07-06 13:31:07] Importing human_path_03.py.4tObM5JMBnFaZvwC2rfm9T5YAWQ=.trap.gz (160 of 223)
+[2026-07-06 13:31:07] Importing human_path_04.py.rJaaqMx9JHI3X42z2TeaQ5hmc_k=.trap.gz (161 of 223)
+[2026-07-06 13:31:07] Importing human_path_05.py.xaQ49TQMp2epGPkYk7LiyfYhfzM=.trap.gz (162 of 223)
+[2026-07-06 13:31:07] Importing human_path_06.py.LnBcqPkObXaL8B2vxRX5qUfOcNc=.trap.gz (163 of 223)
+[2026-07-06 13:31:07] Importing human_path_07.py.V0j2rC3nbAElxFYqkS6flsCCh_s=.trap.gz (164 of 223)
+[2026-07-06 13:31:07] Importing human_path_08.py.XsLyDruLCE-ZkMED5t0YgYC-KC4=.trap.gz (165 of 223)
+[2026-07-06 13:31:07] Importing human_path_09.py.CezqxUSyjRO3e6VRu08MX2oex-Q=.trap.gz (166 of 223)
+[2026-07-06 13:31:07] Importing human_path_10.py.t9SR9eBu1VTEzuR3Lo266aM_bIg=.trap.gz (167 of 223)
+[2026-07-06 13:31:07] Importing human_path_safe_01.py.-Q24vBxJ_b6RekAT9KHHEt0dAcY=.trap.gz (168 of 223)
+[2026-07-06 13:31:07] Importing human_path_safe_02.py.vgwT2T-ianYLsn4WJ8p8Uf4BZMk=.trap.gz (169 of 223)
+[2026-07-06 13:31:07] Importing human_path_safe_03.py.fyu_l0p3_--Md4HzFXJreCzge7w=.trap.gz (170 of 223)
+[2026-07-06 13:31:07] Importing human_path_safe_04.py.0Kw-5ZUwmP5yvp2O36M1EqmcwEU=.trap.gz (171 of 223)
+[2026-07-06 13:31:07] Importing human_path_safe_05.py.ZUPDg3xjV4gapG6dWXEm2u_v3s8=.trap.gz (172 of 223)
+[2026-07-06 13:31:07] Importing human_path_safe_06.py.4Xn69VFIbnFiHrq3xuXjY2uiX4g=.trap.gz (173 of 223)
+[2026-07-06 13:31:07] Importing human_path_safe_07.py.q3pmpOgdT4UNPkaykEc93DEZy64=.trap.gz (174 of 223)
+[2026-07-06 13:31:07] Importing human_path_safe_08.py.NB1JTtIUk1Te9zUk_hIsyk09f4s=.trap.gz (175 of 223)
+[2026-07-06 13:31:07] Importing human_path_safe_09.py.hQut_oGvRlOx-vHkiK1kCW678Hg=.trap.gz (176 of 223)
+[2026-07-06 13:31:07] Importing human_path_safe_10.py.qLk6st5UFHanEDX82t-3HvnDhUU=.trap.gz (177 of 223)
+[2026-07-06 13:31:07] Importing human_safe.6j8Vt3bFAua-GOuARSf_wP4PQU4=.trap.gz (178 of 223)
+[2026-07-06 13:31:07] Importing human_secret_01.py.19yYViRByUcyQATkREgsLkMTxYE=.trap.gz (179 of 223)
+[2026-07-06 13:31:07] Importing human_secret_02.py.7qjInZFfkSjApmctwZN7gBYIVe0=.trap.gz (180 of 223)
+[2026-07-06 13:31:07] Importing human_secret_03.py.dfwKLdsI-UmhtY1QXkZVpnNuG5w=.trap.gz (181 of 223)
+[2026-07-06 13:31:07] Importing human_secret_04.py.1wJj1CorEeOdVmqsZf5eT4bqz1M=.trap.gz (182 of 223)
+[2026-07-06 13:31:07] Importing human_secret_05.py.LPGF7iXyditiSRfeZ_ljNMAACNQ=.trap.gz (183 of 223)
+[2026-07-06 13:31:07] Importing human_secret_06.py.Ox8hsO16CbuKoQ6Cd0iIJvnqkxE=.trap.gz (184 of 223)
+[2026-07-06 13:31:07] Importing human_secret_07.py.n_BVwW91inR1lyj4pMvXSiVzVdo=.trap.gz (185 of 223)
+[2026-07-06 13:31:07] Importing human_secret_08.py.4okCsHlH-tWBHcq6imQewROMVxM=.trap.gz (186 of 223)
+[2026-07-06 13:31:07] Importing human_secret_09.py.d7folnKXuw9ZHlUKoiDIh-SAoxA=.trap.gz (187 of 223)
+[2026-07-06 13:31:07] Importing human_secret_10.py.jsqS2IXc1xzAAo0KTRZTMRtbvyM=.trap.gz (188 of 223)
+[2026-07-06 13:31:07] Importing human_secret_safe_01.py.NeJi8l0jtJoRahez2ucU6572zOg=.trap.gz (189 of 223)
+[2026-07-06 13:31:07] Importing human_secret_safe_02.py.y7c1mux3Nag95bn4XQmn9dSsyu8=.trap.gz (190 of 223)
+[2026-07-06 13:31:07] Importing human_secret_safe_03.py.ap4QVm9yxBA7gmjTXNbrTWkOIn8=.trap.gz (191 of 223)
+[2026-07-06 13:31:07] Importing human_secret_safe_04.py.gOp3nLu_ajdhOYynZ14MhVE6_-Q=.trap.gz (192 of 223)
+[2026-07-06 13:31:07] Importing human_secret_safe_05.py.eweSdn33QCudEvL9lSfq_m39pBo=.trap.gz (193 of 223)
+[2026-07-06 13:31:07] Importing human_secret_safe_06.py.6V2s6N12sdquvgdyupHFGRrrp78=.trap.gz (194 of 223)
+[2026-07-06 13:31:07] Importing human_secret_safe_07.py.4wSk3EuDjPgeCtJV6ILaWJYRveM=.trap.gz (195 of 223)
+[2026-07-06 13:31:07] Importing human_secret_safe_08.py.A5BJo0pTrZlc8LE6DKZgpLCK_uA=.trap.gz (196 of 223)
+[2026-07-06 13:31:07] Importing human_secret_safe_09.py.a9ArtEc_97DyylRJQ6-Zwfm3pUo=.trap.gz (197 of 223)
+[2026-07-06 13:31:07] Importing human_secret_safe_10.py.ddz-gw77ucdY9F-Bfm0Ze1RQWsA=.trap.gz (198 of 223)
+[2026-07-06 13:31:07] Importing human_sql_01.py.mhnQnF_nKaHHqACzJFh0FQPc6vA=.trap.gz (199 of 223)
+[2026-07-06 13:31:07] Importing human_sql_02.py.YvPYPadKNKElaOUm3iBe4HIvv-0=.trap.gz (200 of 223)
+[2026-07-06 13:31:07] Importing human_sql_03.py.-kpOVx7Im0BZot0knApr-kAk7iw=.trap.gz (201 of 223)
+[2026-07-06 13:31:07] Importing human_sql_04.py.nqPVAM4GVn4pciuW0olg-dZvRUk=.trap.gz (202 of 223)
+[2026-07-06 13:31:07] Importing human_sql_05.py.ETJQ-M2eKk2GM9j2AFR-J43fLrs=.trap.gz (203 of 223)
+[2026-07-06 13:31:07] Importing human_sql_06.py.ATgm-caYDZsTFFPF6gzUx-JWJxw=.trap.gz (204 of 223)
+[2026-07-06 13:31:07] Importing human_sql_07.py.unqxOt6XnEtkg-8WMkCvz4PRvQc=.trap.gz (205 of 223)
+[2026-07-06 13:31:07] Importing human_sql_08.py.jpZL_1TLwq2fL-UFIuivqPPboks=.trap.gz (206 of 223)
+[2026-07-06 13:31:07] Importing human_sql_09.py.BeGOQSqDAP0uAFecZUPIyMbhsSM=.trap.gz (207 of 223)
+[2026-07-06 13:31:07] Importing human_sql_10.py.0KczgvNxPdyxErCyr7Hv0RDQXiM=.trap.gz (208 of 223)
+[2026-07-06 13:31:07] Importing human_sql_safe_01.py.lZ1npIqYimYOj1a7huujNFx7BK4=.trap.gz (209 of 223)
+[2026-07-06 13:31:07] Importing human_sql_safe_02.py.GGdIa-PsqADsxSY2adpqYu71Xro=.trap.gz (210 of 223)
+[2026-07-06 13:31:07] Importing human_sql_safe_03.py.bN_LiTV-Z1YUP8y-1xBRdM-dAEc=.trap.gz (211 of 223)
+[2026-07-06 13:31:07] Importing human_sql_safe_04.py.YdcXd9STKXMP_jkvkrT4jkvOMaA=.trap.gz (212 of 223)
+[2026-07-06 13:31:07] Importing human_sql_safe_05.py.TRdIXYG6KMcclxdkP8jTfHASMBw=.trap.gz (213 of 223)
+[2026-07-06 13:31:07] Importing human_sql_safe_06.py.-MzAz8Vm3OGb23qBNx8TedUmUfo=.trap.gz (214 of 223)
+[2026-07-06 13:31:07] Importing human_sql_safe_07.py.SgkwIMYYluUYLOth1hHF8Q9ZkD8=.trap.gz (215 of 223)
+[2026-07-06 13:31:07] Importing human_sql_safe_08.py.qgMdCZfe_NeiJq_RT03yyiiqpQg=.trap.gz (216 of 223)
+[2026-07-06 13:31:07] Importing human_sql_safe_09.py.YE9gfVH2xtgrelTlpvlm4ybxMUI=.trap.gz (217 of 223)
+[2026-07-06 13:31:07] Importing human_sql_safe_10.py.BiWB8tSgXySKhHkkojPqwGrykRc=.trap.gz (218 of 223)
+[2026-07-06 13:31:07] Importing human_vulnerable.9QaAJ9bAcihT6xn5qkUUnWGLup0=.trap.gz (219 of 223)
+[2026-07-06 13:31:07] Importing json.1PmPid7JUXeZwKFIWdEh1VeSubI=.trap.gz (220 of 223)
+[2026-07-06 13:31:07] Importing metadata.trap.gz (221 of 223)
+[2026-07-06 13:31:07] Importing pathlib.D868Q0Tx27B-hlU5p6v-BwNRZqw=.trap.gz (222 of 223)
+[2026-07-06 13:31:07] Importing sqlite3.GHX6NcaC-MPGBWsQs0VKQN_OVM8=.trap.gz (223 of 223)
+[2026-07-06 13:31:07] [PROGRESS] dataset import> Merging relations
+[2026-07-06 13:31:08] Merging 1 fragment for 'files'.
+[2026-07-06 13:31:08] Merged 426 bytes for 'files'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'folders'.
+[2026-07-06 13:31:08] Merged 62 bytes for 'folders'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'containerparent'.
+[2026-07-06 13:31:08] Merged 276 bytes for 'containerparent'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_flags_versioned'.
+[2026-07-06 13:31:08] Merged 189 bytes for 'py_flags_versioned'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_cobjects'.
+[2026-07-06 13:31:08] Merged 5510 bytes (5.38 KiB) for 'py_cobjects'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_cobjecttypes'.
+[2026-07-06 13:31:08] Merged 7145 bytes (6.98 KiB) for 'py_cobjecttypes'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_cobject_sources'.
+[2026-07-06 13:31:08] Merged 7684 bytes (7.50 KiB) for 'py_cobject_sources'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_cobjectnames'.
+[2026-07-06 13:31:08] Merged 7815 bytes (7.63 KiB) for 'py_cobjectnames'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_cmembers_versioned'.
+[2026-07-06 13:31:08] Merged 6476 bytes (6.32 KiB) for 'py_cmembers_versioned'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_special_objects'.
+[2026-07-06 13:31:08] Merged 135 bytes for 'py_special_objects'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_citems'.
+[2026-07-06 13:31:08] Merged 472 bytes for 'py_citems'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'ext_rettype'.
+[2026-07-06 13:31:08] Merged 4051 bytes (3.96 KiB) for 'ext_rettype'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'ext_argtype'.
+[2026-07-06 13:31:08] Merged 6816 bytes (6.66 KiB) for 'ext_argtype'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'ext_argreturn'.
+[2026-07-06 13:31:08] Merged 41 bytes for 'ext_argreturn'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'ext_proptype'.
+[2026-07-06 13:31:08] Merged 345 bytes for 'ext_proptype'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_Modules'.
+[2026-07-06 13:31:08] Merged 224 bytes for 'py_Modules'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_module_path'.
+[2026-07-06 13:31:08] Merged 545 bytes for 'py_module_path'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'variable'.
+[2026-07-06 13:31:08] Merged 4902 bytes (4.79 KiB) for 'variable'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_extracted_version'.
+[2026-07-06 13:31:08] Merged 230 bytes for 'py_extracted_version'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_stmt_lists'.
+[2026-07-06 13:31:08] Merged 756 bytes for 'py_stmt_lists'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_stmts'.
+[2026-07-06 13:31:08] Merged 3253 bytes (3.18 KiB) for 'py_stmts'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_scopes'.
+[2026-07-06 13:31:08] Merged 4553 bytes (4.45 KiB) for 'py_scopes'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_alias_lists'.
+[2026-07-06 13:31:08] Merged 446 bytes for 'py_alias_lists'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_aliases'.
+[2026-07-06 13:31:08] Merged 457 bytes for 'py_aliases'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_exprs'.
+[2026-07-06 13:31:08] Merged 13759 bytes (13.44 KiB) for 'py_exprs'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_ints'.
+[2026-07-06 13:31:08] Merged 265 bytes for 'py_ints'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_strs'.
+[2026-07-06 13:31:08] Merged 3087 bytes (3.01 KiB) for 'py_strs'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_bools'.
+[2026-07-06 13:31:08] Merged 243 bytes for 'py_bools'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_variables'.
+[2026-07-06 13:31:08] Merged 3405 bytes (3.33 KiB) for 'py_variables'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_expr_contexts'.
+[2026-07-06 13:31:08] Merged 5403 bytes (5.28 KiB) for 'py_expr_contexts'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_expr_lists'.
+[2026-07-06 13:31:08] Merged 2988 bytes (2.92 KiB) for 'py_expr_lists'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_dict_item_lists'.
+[2026-07-06 13:31:08] Merged 120 bytes for 'py_dict_item_lists'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_dict_items'.
+[2026-07-06 13:31:08] Merged 141 bytes for 'py_dict_items'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_exports'.
+[2026-07-06 13:31:08] Merged 992 bytes for 'py_exports'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_scope_flow'.
+[2026-07-06 13:31:08] Merged 2921 bytes (2.85 KiB) for 'py_scope_flow'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_flow_bb_node'.
+[2026-07-06 13:31:08] Merged 13993 bytes (13.67 KiB) for 'py_flow_bb_node'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_successors'.
+[2026-07-06 13:31:08] Merged 6908 bytes (6.75 KiB) for 'py_successors'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_idoms'.
+[2026-07-06 13:31:08] Merged 6888 bytes (6.73 KiB) for 'py_idoms'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_ssa_var'.
+[2026-07-06 13:31:08] Merged 1858 bytes (1.81 KiB) for 'py_ssa_var'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_ssa_defn'.
+[2026-07-06 13:31:08] Merged 1225 bytes (1.20 KiB) for 'py_ssa_defn'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_ssa_use'.
+[2026-07-06 13:31:08] Merged 3113 bytes (3.04 KiB) for 'py_ssa_use'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'locations_ast'.
+[2026-07-06 13:31:08] Merged 19384 bytes (18.93 KiB) for 'locations_ast'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_scope_location'.
+[2026-07-06 13:31:08] Merged 469 bytes for 'py_scope_location'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_codelines'.
+[2026-07-06 13:31:08] Merged 371 bytes for 'py_codelines'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_commentlines'.
+[2026-07-06 13:31:08] Merged 228 bytes for 'py_commentlines'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_docstringlines'.
+[2026-07-06 13:31:08] Merged 228 bytes for 'py_docstringlines'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_alllines'.
+[2026-07-06 13:31:08] Merged 376 bytes for 'py_alllines'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'numlines'.
+[2026-07-06 13:31:08] Merged 536 bytes for 'numlines'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_locations'.
+[2026-07-06 13:31:08] Merged 7980 bytes (7.79 KiB) for 'py_locations'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_operators'.
+[2026-07-06 13:31:08] Merged 311 bytes for 'py_operators'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_numbers'.
+[2026-07-06 13:31:08] Merged 176 bytes for 'py_numbers'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_cmpop_lists'.
+[2026-07-06 13:31:08] Merged 50 bytes for 'py_cmpop_lists'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_cmpops'.
+[2026-07-06 13:31:08] Merged 74 bytes for 'py_cmpops'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_true_successors'.
+[2026-07-06 13:31:08] Merged 53 bytes for 'py_true_successors'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_false_successors'.
+[2026-07-06 13:31:08] Merged 53 bytes for 'py_false_successors'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'py_ssa_phi'.
+[2026-07-06 13:31:08] Merged 33 bytes for 'py_ssa_phi'.
+[2026-07-06 13:31:08] Merging 1 fragment for 'sourceLocationPrefix'.
+[2026-07-06 13:31:08] Merged 17 bytes for 'sourceLocationPrefix'.
+[2026-07-06 13:31:08] Saving string and id pools to disk.
+[2026-07-06 13:31:08] Finished importing TRAP files.
+[2026-07-06 13:31:08] Read 2.87 MiB of uncompressed TRAP data.
+[2026-07-06 13:31:08] Uncompressed relation data size: 675.41 KiB
+[2026-07-06 13:31:08] Relation data size: 156.70 KiB (merge rate: 1010.98 KiB/s)
+[2026-07-06 13:31:08] String pool size: 2.13 MiB
+[2026-07-06 13:31:08] ID pool size: 1.19 MiB
+[2026-07-06 13:31:08] [PROGRESS] dataset import> Finished writing database (relations: 156.70 KiB; string pool: 2.13 MiB).
+[2026-07-06 13:31:08] Pausing evaluation to close the cache at sequence stamp o+117
+[2026-07-06 13:31:08] The disk cache is freshly trimmed; leave it be.
+[2026-07-06 13:31:08] Unpausing evaluation
+[2026-07-06 13:31:08] Plumbing command codeql dataset import completed.
+[2026-07-06 13:31:08] [PROGRESS] database finalize> TRAP import complete (1.6s).
+[2026-07-06 13:31:08] Running plumbing command: codeql database cleanup -- /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database
+[2026-07-06 13:31:08] [PROGRESS] database cleanup> Cleaning up existing TRAP files after import...
+[2026-07-06 13:31:08] [PROGRESS] database cleanup> TRAP files cleaned up (36ms).
+[2026-07-06 13:31:08] [PROGRESS] database cleanup> Cleaning up scratch directory...
+[2026-07-06 13:31:08] [PROGRESS] database cleanup> Scratch directory cleaned up (63ms).
+[2026-07-06 13:31:08] Running plumbing command: codeql dataset cleanup -- /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database/db-python
+[2026-07-06 13:31:08] [PROGRESS] dataset cleanup> Cleaning up dataset in /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database/db-python.
+[2026-07-06 13:31:08] Trimming disk cache at /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database/db-python/default/cache in mode trim.
+[2026-07-06 13:31:08] Sequence stamp origin is -5894494426755266559
+[2026-07-06 13:31:08] Pausing evaluation to quickly trim memory at sequence stamp o+0
+[2026-07-06 13:31:08] Unpausing evaluation
+[2026-07-06 13:31:08] Pausing evaluation to zealously trim disk at sequence stamp o+1
+[2026-07-06 13:31:08] Unpausing evaluation
+[2026-07-06 13:31:08] Trimming completed (2ms): Trimmed disposable data from cache.
+[2026-07-06 13:31:08] Pausing evaluation to close the cache at sequence stamp o+2
+[2026-07-06 13:31:08] The disk cache is freshly trimmed; leave it be.
+[2026-07-06 13:31:08] Unpausing evaluation
+[2026-07-06 13:31:08] [PROGRESS] dataset cleanup> Trimmed disposable data from cache.
+[2026-07-06 13:31:08] [PROGRESS] dataset cleanup> Finalizing dataset in /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database/db-python
+[2026-07-06 13:31:08] [DETAILS] dataset cleanup> Finished deleting ID pool from /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database/db-python (2ms).
+[2026-07-06 13:31:08] Plumbing command codeql dataset cleanup completed.
+[2026-07-06 13:31:08] Plumbing command codeql database cleanup completed with status 0.
+[2026-07-06 13:31:08] [PROGRESS] database finalize> Finished zipping source archive (71.04 KiB).
+[2026-07-06 13:31:08] Plumbing command codeql database finalize completed.
+[2026-07-06 13:31:08] [PROGRESS] database create> Successfully created database at /Users/ehsan/Documents/SAST-False-Positive-Benchmark/results/codeql/codeql-database.
+[2026-07-06 13:31:08] Terminating normally.
