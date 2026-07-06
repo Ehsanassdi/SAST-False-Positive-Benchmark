@@ -1,0 +1,5 @@
+Tool,Total_Findings
+Semgrep,54
+Bandit,146
+CodeQL,25
+Snyk,94
