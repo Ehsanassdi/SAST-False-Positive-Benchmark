@@ -1,0 +1,5 @@
+Tool,TP,FP,FN,TN
+Semgrep,49,0,51,100
+Bandit,76,20,24,80
+CodeQL,11,14,89,86
+Snyk,91,2,9,98
